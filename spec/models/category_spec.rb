@@ -2,8 +2,8 @@ require 'rails_helper'
 require 'shared_examples_for_models'
 
 RSpec.describe Category, type: :model do
-  subject { create(:category) }
-  
+  subject { build(:category) }
+
   it { should have_many(:posts) }
   it { should have_many(:comments) }
 
