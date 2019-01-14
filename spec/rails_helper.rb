@@ -84,4 +84,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  FactoryBot::SyntaxRunner.class_eval do
+    include ActionDispatch::TestProcess
+  end  
 end
