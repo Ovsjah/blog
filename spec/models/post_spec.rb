@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { create(:post) }
+  subject { create(:post, :with_file) }
 
   it { should belong_to(:category) }
   it { should validate_presence_of(:name) }
@@ -10,10 +10,12 @@ RSpec.describe Post, type: :model do
     it { expect(subject).to be_valid }
   end
 
-  context "when file is invalid" do
-    it "has size more than 2 megabytes" do
-      subject.file = 'abc' * 1000000
-      expect(subject).not_to be_valid
+  context "when file size is invalid" do
+    let(:invalid_post) { build(:invalid_post, :with_file) }
+
+    it "fails validation" do
+      expect(invalid_post).not_to be_valid
+      expect(invalid_post.errors[:file]).to include("Uploaded file is over 2Mb")
     end
   end
 

@@ -1,8 +1,18 @@
 class Post < ApplicationRecord
   belongs_to :category
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_one_attached :file
 
   validates_presence_of :name
-  validates_size_of :file, maximum: 2.megabytes, message: "should be less than 2 Mb"
+  validate :file_size
   validates_with NameValidator
+
+  def file_size
+    if file.attached?
+      if file.blob.byte_size > 2000000
+        file.purge
+        errors[:file] << 'Uploaded file is over 2Mb'
+      end
+    end
+  end
 end
