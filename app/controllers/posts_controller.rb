@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :get_all_categories, :set_current_category, only: [:new, :edit, :update]
+  before_action :get_all_categories, :set_current_category, only: [:new, :create, :edit, :update]
 
   def show
+    @comment = Comment.new
+    @comments = @post.comments.order("created_at DESC")
   end
 
   def edit

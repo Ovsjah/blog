@@ -1,11 +1,16 @@
-<p id="notice"><%= notice %></p>
 <div>
   <h3><%= @post.category.name %></h3>
+  <%= link_to 'Back to categories', root_path %>
   <hr>
   <h4><%= @post.name %></h4>
   <%= image_tag @post.file if @post.file.attachment %>
   <p><%= @post.content %></p>
-
-  <%= link_to 'Edit', edit_post_path(@post, category_id: @post.category_id) %> |
-  <%= link_to 'Back', category_path(@post.category_id) %>
+  <div class='nav'>
+    <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Edit', edit_post_path(@post, category_id: @post.category_id) %> |
+    <%= link_to 'Back', category_path(@post.category_id) %>
+  </div>
+  <hr>
+  <%= render "comments/form", comment: @comment %>
+  <%= render "comments/comments", comment: @comment %>
 </div>
