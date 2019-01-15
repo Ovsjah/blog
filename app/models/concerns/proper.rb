@@ -7,10 +7,9 @@ module Proper
     first = words.first
     second = words.second
 
-    words.size >=2 &&
-      first.size >=2 && first_two_letters?(first) &&
-      second.size >= 2 && first_two_letters?(second) &&
-      str.include?('.')
+    (words.size == 2 && first.size >= 2 && first_two_letters?(first) &&
+      second.size >= 2 && first_two_letters?(second) ||
+      words.size > 2) && str.include?('.')
   end
 
   def first_two_letters?(word)

@@ -27,3 +27,15 @@ posts.third.file.attach(io: File.open('./spec/assets/piranha.jpeg'), filename: '
 posts.fourth.file.attach(io: File.open('./spec/assets/java_coffee.jpeg'), filename: 'java_coffee.jpeg')
 posts.fifth.file.attach(io: File.open('./spec/assets/robusta_beans.jpeg'), filename: 'robusta_beans.jpeg')
 posts[5].file.attach(io: File.open('./spec/assets/arabica_beans.jpeg'), filename: 'arabica_beans.jpeg')
+
+posts.first.comments.create(author: "Stinky Wizzleteats.", content: "Really nice show, already subscribed.")
+posts.first.comments.create(author: "Ovsjah Schweinefresser.", content: "The best on youtube!")
+posts.first.comments.create(author: "Mars Bonfire.", content: "Born to be wild!")
+posts.first.comments.create(author: "Santa Claus.", content: "Merry Christmas and happy New Year!!!")
+posts.third.comments.create(author: "Alice Cooper.", content: "You can lost a part if you pee in water.)")
+posts.fourth.comments.create(author: "Stinky Wizzleteats.", content: "I thought it's the name of programming language.) ")
+posts.fourth.comments.create(author: "Ovsjah Schweinefresser.", content: "Smell like Java, yummy!")
+
+categories.first.comments.create(author: "Ovsjah Schweinefresser.", content: "The best on youtube!")
+categories.second.comments.create(author: "Stinky Wizzleteats.", content: "I'll read it too!")
+categories.third.comments.create(author: "Alice Cooper.", content: "Nice category, perhaps I'll read some posts.")
