@@ -11,7 +11,7 @@ class Post < ApplicationRecord
     if file.attached?
       if file.blob.byte_size > 2000000
         file.purge
-        errors[:file] << 'Uploaded file is over 2Mb'
+        errors[:file] << 'is over 2Mb'
       end
     end
   end
