@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :category do
-    name "#{Faker::Coffee.blend_name} coffee."
-    description "#{Faker::Coffee.notes.capitalize}."
+    name { "Java green coffee." }
+    description { "Magic aroma of fresh green beans." }
   end
 end

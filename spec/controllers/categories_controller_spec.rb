@@ -93,6 +93,12 @@ RSpec.describe CategoriesController, type: :controller do
         post :create, params: {category: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
+
+      it "doesn't create a new Category" do
+        expect {
+          post :create, params: {category: invalid_attributes}
+        }.not_to change(Category, :count)
+      end
     end
   end
 

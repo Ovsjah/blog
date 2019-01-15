@@ -1,7 +1,26 @@
-<p id="notice"><%= notice %></p>
 <div>
   <h3><%= @category.name %></h3>
   <p><%= @category.description %></p>
   <%= link_to 'Edit', edit_category_path(@category) %> |
   <%= link_to 'Back', categories_path %>
+  <hr>
+  <%= render "comments/form", comment: @comment %>
+  <%= render "comments/comments", comment: @comment %>
+  <hr>
+  <%= link_to 'Create Post', new_post_path(category_id: @category) %>
+  <ul>
+  <% @category.posts.each do |post| %>
+    <li>
+      <h4><%= post.name %></h4>
+      <%= image_tag post.file if post.file.attachment %>
+      <p><%= post.content %></p><td>
+      <div class='nav'>
+        <%= link_to 'Show', post %> |
+        <%= link_to 'Edit', edit_post_path(post, category_id: @category) %> |
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+        <%= pluralize(post.comments.count, "Comment") %>
+      </div>
+    </li>
+  <% end %>
+  </ul>
 </div>

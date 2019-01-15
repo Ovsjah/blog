@@ -10,6 +10,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @comment = Comment.new
+    @comments = @category.comments.order("created_at DESC")
   end
 
   # GET /categories/new

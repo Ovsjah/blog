@@ -1,0 +1,4 @@
+<% if comment.created_at %>
+  [<%= comment.created_at.strftime("%I:%M %p") %>] <%= comment.author %>: <%= comment.content %>
+<% end %>
+<br>
