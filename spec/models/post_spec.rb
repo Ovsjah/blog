@@ -15,7 +15,7 @@ RSpec.describe Post, type: :model do
 
     it "fails validation" do
       expect(invalid_post).not_to be_valid
-      expect(invalid_post.errors[:file]).to include("Uploaded file is over 2Mb")
+      expect(invalid_post.errors[:file]).to include("is over 2Mb")
     end
   end
 

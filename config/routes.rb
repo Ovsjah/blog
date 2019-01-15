@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   root 'categories#index'
-  resources :categories
 
-  resources :categories do
-    post 'comments', to: 'comments#create'
+  concern :commentable do
+    resources :comments, only: :create
   end
 
-  resources :posts do
-    post 'comments', to: 'comments#create'
-  end
+  resources :categories , concerns: :commentable
+  resources :posts, concerns: :commentable
 end
