@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="actions">
+  <div class="fields"
     <%= form.label :category %><br>
     <%= form.select(:category_id, options_for_select(@categories, @current_category), prompt: "Select one!") %><br><br>
     <%= form.label :file %><br>
@@ -19,6 +19,8 @@
     <%= form.text_field :name, placeholder: "Type in the post's name"%><br><br>
     <%= form.label :content %><br>
     <%= form.text_area :content, size: "60x12", placeholder: "Type in the post's content" %><br><br>
+  </div>
+  <div class="actions">
     <%= form.submit %><br><br>
   </div>
 <% end %>

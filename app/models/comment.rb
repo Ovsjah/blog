@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  belongs_to :category
+  belongs_to :category, optional: true
   belongs_to :post, optional: true
 
   validates_presence_of :author
