@@ -3,7 +3,7 @@
   <p><%= @category.description %></p>
   <%= link_to 'Edit', edit_category_path(@category) %> |
   <%= link_to 'Back', categories_path %>
-  <br><br>
+  <hr>
   <%= render "comments/form", comment: @comment %>
   <%= render "comments/comments", comment: @comment %>
   <hr>
