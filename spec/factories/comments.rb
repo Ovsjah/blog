@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :comment do
-    association :category, factory: :category
+    category
 
-    author { "Alice Cooper." }
-    content { "No More Mr. Nice Guy." }
+    author { "#{Faker::FunnyName.two_word_name}." }
+    content { Faker::GreekPhilosophers.quote }
   end
 end

@@ -1,11 +1,20 @@
+FILES = %w[
+  arabica_beans black_coffee_beans coffee
+  coffee_beans gourmet_coffee_beans green_coffee
+  java_coffee light_coffee_beans
+  roasted_coffee_beans robusta_beans
+]
+
 FactoryBot.define do
   factory :post do
-    association :category, factory: :category
-    name { "Borsch and a loaf of bread." }
-    content { "Soup with meat and beetroots" }
+    category
+    name { "#{Faker::Coffee.blend_name} coffee blend." }
+    content { "#{Faker::Coffee.notes.capitalize}." }
 
     trait :with_file do
-      file { fixture_file_upload(Rails.root.join('spec', 'assets', 'arabica_beans.jpeg')) }
+      file do
+        fixture_file_upload(Rails.root.join('spec', 'assets', "#{FILES.pop}.jpeg"))
+      end
     end
   end
 end
