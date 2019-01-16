@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :invalid_post, class: Post do
-    association :category, factory: :category
+    category
     name { "White Fang is perfect." }
     content { "Was written by Jack London." }
 
