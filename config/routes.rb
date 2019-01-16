@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
 
-  resources :categories , concerns: :commentable
+  resources :categories, concerns: :commentable
   resources :posts, concerns: :commentable
 end
