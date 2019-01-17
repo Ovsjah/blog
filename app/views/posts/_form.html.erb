@@ -6,7 +6,7 @@
     <%= form.label :file %><br>
     <%= form.file_field :file %><br><br>
     <%= form.label :name %><br>
-    <%= form.text_field :name, placeholder: "Type in the post's name"%><br><br>
+    <%= form.text_field :name, placeholder: "Type in the post's name", required: true %><br><br>
     <%= form.label :content %><br>
     <%= form.text_area :content, size: "60x12", placeholder: "Type in the post's content" %><br><br>
   </div>

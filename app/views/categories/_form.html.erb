@@ -1,10 +1,10 @@
 <%= form_with(model: category, local: true) do |form| %>
-  <%= render "shared/error_messages", object: category %>   
+  <%= render "shared/error_messages", object: category %>
   <div class="fields">
     <%= form.label :name %><br>
-    <%= form.text_field :name, size: '30', placeholder: "Type in a name of the category" %><br><br>
+    <%= form.text_field :name, size: '30', placeholder: "Type in a name of the category", required: true %><br><br>
     <%= form.label :description %><br>
-    <%= form.text_area :description, size: '40x20', placeholder: "Add a short description of the category" %><br><br>
+    <%= form.text_area :description, size: '40x20', placeholder: "Add a short description of the category"%><br><br>
   </div>
   <div class="actions">
     <%= form.submit %><br><br>

@@ -1,10 +1,11 @@
 <i>Add a comment:</i><br><br>
 <%= form_with(model: [@category, @post, @comment]) do |form| %>
   <div class="fields">
-    <%= form.label :author %>&nbsp<span id="author" class="error_message"></span><br>
-    <%= form.text_field :author %><br><br>
+    <%= form.label :author %>
+    &nbsp<span id="author" class="error_message"></span><br>
+    <%= form.text_field :author, required: true %><br><br>
     <%= form.label :content %>&nbsp<span id="content" class="error_message"></span><br>
-    <%= form.text_field :content, size: "60" %><br><br>
+    <%= form.text_field :content, size: "60", required: true %><br><br>
   </div>
   <div class="actions">
     <%= form.submit "Add comment" %><br><br>
