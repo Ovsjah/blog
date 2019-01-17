@@ -5,8 +5,7 @@
     <%= form.select(:category_id, options_for_select(@categories, @current_category), prompt: "Select one!") %><br><br>
     <%= form.label :file %><br>
     <%= form.file_field :file %><br><br>
-    <%= form.label :name,
-      "Name starts in a capital" %><br>
+    <%= form.label :name, "Name starts with a capital" %><br>
     <%= form.text_field :name, placeholder: "Type in the post's name", required: true, pattern: "\A[A-Z]" %><br><br>
     <%= form.label :content %><br>
     <%= form.text_area :content, size: "60x12", placeholder: "Type in the post's content" %><br><br>

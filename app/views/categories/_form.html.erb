@@ -1,7 +1,7 @@
 <%= form_with(model: category, local: true) do |form| %>
   <%= render "shared/error_messages", object: category %>
   <div class="fields">
-    <%= form.label :name, "Name starts in a capital" %><br>
+    <%= form.label :name, "Name starts with a capital" %><br>
     <%= form.text_field :name, size: '30', placeholder: "Type in a name of the category", required: true, format: "\A[A-Z]" %><br><br>
     <%= form.label :description %><br>
     <%= form.text_area :description, size: '40x20', placeholder: "Add a short description of the category"%><br><br>
