@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.fetch(:comment).permit(:author, :content, :post_id) #:category_id)
+    params.fetch(:comment).permit(:author, :content, :post_id, :category_id)
   end
 
   def set_post

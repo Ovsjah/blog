@@ -1,16 +1,6 @@
 <%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="fields"
+  <%= render "shared/error_messages", object: post %> 
+  <div class="fields">
     <%= form.label :category %><br>
     <%= form.select(:category_id, options_for_select(@categories, @current_category), prompt: "Select one!") %><br><br>
     <%= form.label :file %><br>

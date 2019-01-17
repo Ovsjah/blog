@@ -1,13 +1,10 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :get_all_categories, :set_current_category, only: [:new, :create, :edit, :update]
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :get_all_categories, :set_current_category, only: %i[new create edit update]
 
   def show
     @comment = Comment.new
     @comments = @post.comments.order("created_at DESC")
-  end
-
-  def edit
   end
 
   def new
@@ -34,7 +31,7 @@ class PostsController < ApplicationController
 
   def destroy
     category = @post.category
-    @post.destroy
+    @post.destroy!
     redirect_to category, notice: 'Post was successfully destroyed.'
   end
 
