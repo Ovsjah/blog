@@ -1,5 +1,5 @@
 <%= form_with(model: post, local: true) do |form| %>
-  <%= render "shared/error_messages", object: post %> 
+  <%= render "shared/error_messages", object: post %>
   <div class="fields">
     <%= form.label :category %><br>
     <%= form.select(:category_id, options_for_select(@categories, @current_category), prompt: "Select one!") %><br><br>
