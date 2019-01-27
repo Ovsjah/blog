@@ -9,8 +9,8 @@ class Post < ApplicationRecord
 
   def file_size
     if file.attached?
-      if file.blob.byte_size > 2000000
-        file.purge
+      if file.blob.byte_size > 2.megabytes
+        file.purge  # deletes the file
         errors[:file] << 'is over 2Mb'
       end
     end
